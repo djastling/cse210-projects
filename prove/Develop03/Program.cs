@@ -1,9 +1,11 @@
 using System;
 
-class Program
+class Program //starts the program class
 {
+    
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        Scripture scripture = Scripture.ChooseRandomScripture(); //Calls the ChooseRandomScripture method and returns a scripture
+        Scripture.ScriptureLoop(scripture); // Calls the ScriptureLoop method and gives it the scripture variable
     }
 }
