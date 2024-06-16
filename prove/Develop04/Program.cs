@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        // Welcomes user to Mindfulness Program and calls MenuLoop method
+        Console.WriteLine("Welcome To the Mindfulness Program!");
+        Activity.MenuLoop();
     }
 }
