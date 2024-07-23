@@ -1,26 +1,26 @@
 using System;
 class BudgetCategory{
     // private member variables for the budget category
-    private string name;
-    private string month;
-    private double budgetAmount;
+    private string _name;
+    private string _month;
+    private double _budgetAmount;
 
     // constructor for the budget category
     public BudgetCategory(string name, string month, double budgetAmount){
-        this.name = name;
-        this.month = month;
-        this.budgetAmount = budgetAmount;
+        _name = name;
+        _month = month;
+        _budgetAmount = budgetAmount;
     }
 
     // getters for the budget category
     public string GetCategory(){
-        return name;
+        return _name;
     }
     public double GetAmount(){
-        return budgetAmount;
+        return _budgetAmount;
     }
 
     public string GetMonth(){
-        return month;
+        return _month;
     }
 }

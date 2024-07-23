@@ -1,33 +1,33 @@
 using System;
-public class Transaction{
+class Transaction{
     // private member variables for the transaction
-    private string date;
-    private double amount;
-    private string description;
-    private string category;
+    private string _date;
+    private double _amount;
+    private string _description;
+    private string _category;
 
     // constructor for the transaction
     public Transaction(string date, double amount, string description, string category){
-        this.date = date;
-        this.description = description;
-        this.amount = amount;
-        this.category = category;
+        _date = date;
+        _description = description;
+        _amount = amount;
+        _category = category;
     }
 
     // getters and setters for the transaction class
     public string GetDate(){
-        return date;
+        return _date;
     }
     public double GetAmount(){
-        return amount;
+        return _amount;
     }
     public string GetDescription(){
-        return description;
+        return _description;
     }
     public string GetCategory(){
-        return category;
+        return _category;
     }
     public void SetCategory(string setCategory){
-        category = setCategory;
+        _category = setCategory;
     }
 }

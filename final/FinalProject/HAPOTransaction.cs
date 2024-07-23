@@ -24,9 +24,10 @@ class HAPOTransaction : InputTransaction{
             // creates a new transaction and adds it to the transaction list
             Transaction transaction = new Transaction(columns[1], double.Parse(columns[9]), columns[3], category);
             InputTransaction.transactionList.Add(transaction);
-        }
-
-        string[] ParseList(string row){
+        }  
+    }
+    // Method that parses the list
+    private string[] ParseList(string row){
 
             // splits the row into columns
             string[] columns = row.Split(',');
@@ -40,5 +41,4 @@ class HAPOTransaction : InputTransaction{
             // returns the columns
             return columns;
         }
-    }
 }

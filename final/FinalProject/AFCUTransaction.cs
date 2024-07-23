@@ -29,7 +29,7 @@ class AFCUTransaction : InputTransaction{
         }
     }
 
-    static string[] ParseList(string row)
+    private static string[] ParseList(string row)
     {
         // splits the row into columns
         string[] columns = row.Split(new string[] { "\",\"" }, StringSplitOptions.None);

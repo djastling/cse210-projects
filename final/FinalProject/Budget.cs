@@ -90,7 +90,7 @@ class Budget{
         if (difference < 0){
             Console.WriteLine($"You overspent by ${(-1 * difference).ToString("F2")}");
         } else {
-            Console.WriteLine($"You stayed ${difference} under your budget!");
+            Console.WriteLine($"You stayed ${difference.ToString("F2")} under your budget!");
         }
 
         // Prompts the user to press enter to continue

@@ -20,7 +20,7 @@ class ICCUTransaction : InputTransaction{
         }
     }
 
-    static string[] ParseList(string row){
+    private string[] ParseList(string row){
 
         // splits the row into columns
         string[] columns = row.Split(new string[] { "\",\"" }, StringSplitOptions.None);
