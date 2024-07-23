@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 class LoadInformation{
 
     // Method that loads information from a file
