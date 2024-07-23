@@ -1,7 +1,11 @@
 using System;
-public class InputTransaction{
+abstract class InputTransaction{
+
+    // Creates the transaction list
     public static List<Transaction> transactionList = new List<Transaction>();
-    public static void InputNewTransactions(){
+    public static void InputNewTransactions()
+    {
+        // Ask the user for the bank and filename
         Console.WriteLine("What bank would you like to import from? ");
         Console.WriteLine("1. ICCU");
         Console.WriteLine("2. AFCU");
@@ -10,23 +14,50 @@ public class InputTransaction{
         Console.WriteLine("What is the filename?");
         string filename = Console.ReadLine();
 
-        // Read all lines from the file
-        string[] allLines = File.ReadAllLines(filename);
+        try{
+            // tries to read the file
+            string[] allLines = File.ReadAllLines(filename);
+            
+            // checks the bank the user entered and imports the transactions
+            if (bank == "1"){
+                ICCUTransaction ICCUTransaction = new ICCUTransaction();
+                ICCUTransaction.ImportTransaction(allLines);
 
-        if (bank == "1"){
-            ICCUTransaction.ICCUImportTransaction(allLines);
-        } else if (bank == "2"){
-            AFCUTransaction.AFCUImportTransaction(allLines);
-        } else if (bank == "3"){
-            HAPOTransaction.HAPOImportTransaction(allLines);
+            } else if (bank == "2"){
+                AFCUTransaction AFCUTransaction = new AFCUTransaction();
+                AFCUTransaction.ImportTransaction(allLines);
+
+            } else if (bank == "3"){
+                HAPOTransaction HAPOTransaction = new HAPOTransaction();
+                HAPOTransaction.ImportTransaction(allLines);
+
+            } else {
+                // writes an error message if the user enters an invalid bank
+                Console.WriteLine("Invalid input.");
+                return;
+            }
+
+            // confirmes to the user that the file was imported
+            Console.WriteLine($"{filename} imported");
+        } catch{
+
+            // if the file can't be found, the program writes an error message
+            Console.WriteLine("File not found.");
+            return;
         }
     }
+    
+    // creates an abstract method to import the transaction for each bank class to override
+    public abstract void ImportTransaction(string[] allLines);
 
     public static void DisplayTransactions(){
 
+        // clears the console and displays the transaction categories
         Console.Clear();
         Console.WriteLine("{0,-12} {1,-10} {2,-70} {3,-15}","Date", "Amount", "Description", "Category");
         Console.WriteLine(new string('-', 110));
+
+        // loops through the transactionList and displays each transactions
         foreach (Transaction transaction in transactionList)
         {
             string description = transaction.GetDescription();
@@ -34,25 +65,13 @@ public class InputTransaction{
             {
                 description = description.Substring(description.Length - 70, 70);
             }
+
+            // displays each transaction's date, amount, description, and category
             Console.WriteLine("{0,-12} {1,-10:C} {2,-70} {3, -15}", transaction.GetDate(), transaction.GetAmount(), description, transaction.GetCategory());
         }
+
+        // waits for the user to press enter
         Console.Write("\nPress Enter to continue...");
         Console.ReadLine();
-    }
-
-    public static string[] SplitString(string input)
-    {
-        string[] parts = null;
-        if (input.Contains("\",\""))
-        {
-            parts = input.Split(new[] { "\",\"" }, StringSplitOptions.None);
-            parts[0] = parts[0].TrimStart('\"');
-            parts[parts.Length - 1] = parts[parts.Length - 1].TrimEnd('\"');
-        }
-        else if (input.Contains(","))
-        {
-            parts = input.Split(',');
-        }
-        return parts;
     }
 }

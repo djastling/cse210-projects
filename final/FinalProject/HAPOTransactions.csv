@@ -1,5 +1,5 @@
-"Account Name : Checking S3"
-"Account Number : 14879666KS3-3049610"
+"Account Name
+"Account Number
 "Date Range : 06/01/2024-06/30/2024"
 Transaction Number,Date,Description,Memo,Amount Debit,Amount Credit,Balance,Check Number,Fees ,Principal 
 "20240630000000[-8:PST]*200.00*501**Deposit",06/30/2024,"Deposit","Internet Access 06/30/2024 08:56 335215 / Transfer 200.00 from S0-3049610 to S3-3049610",,200.00,"211.72",,,200.00

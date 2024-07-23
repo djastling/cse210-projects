@@ -1,10 +1,12 @@
 using System;
 public class Transaction{
+    // private member variables for the transaction
     private string date;
     private double amount;
     private string description;
     private string category;
 
+    // constructor for the transaction
     public Transaction(string date, double amount, string description, string category){
         this.date = date;
         this.description = description;
@@ -12,6 +14,7 @@ public class Transaction{
         this.category = category;
     }
 
+    // getters and setters for the transaction class
     public string GetDate(){
         return date;
     }
